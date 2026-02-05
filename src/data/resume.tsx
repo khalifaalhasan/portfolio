@@ -58,19 +58,14 @@ export const DATA = {
 
         navbar: true,
       },
-      X: {
-        name: "X",
+      Instagram: {
+        name: "Instagram",
         url: "https://dub.sh/dillion-twitter",
-        icon: Icons.x,
+        icon: Icons.instagram,
 
         navbar: true,
       },
-      Youtube: {
-        name: "Youtube",
-        url: "https://dub.sh/dillion-youtube",
-        icon: Icons.youtube,
-        navbar: true,
-      },
+
       email: {
         name: "Send Email",
         url: "#",
