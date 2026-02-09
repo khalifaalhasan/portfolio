@@ -1,21 +1,27 @@
-// lib/prisma.ts
-import { PrismaClient } from '@prisma/client';
-import { env } from 'prisma/config'; // Gunakan helper prisma/config
+import { Pool } from "pg"; // Import driver native pg
+import { PrismaPg } from "@prisma/adapter-pg"; // Import adapternya
+import { PrismaClient } from "@prisma/client";
 
-const prismaClientSingleton = () => {
-  return new PrismaClient({
-    // DI SINI PERUBAHANNYA:
-    // Prisma 7 mengharapkan konfigurasi koneksi dilewatkan secara eksplisit
-    datasourceUrl: process.env.DATABASE_URL, 
+const connectionString = `${process.env.DATABASE_URL}`;
+
+const globalForPrisma = global as unknown as { prisma: PrismaClient };
+
+// 1. Setup Pool (Kolam Koneksi)
+const pool = new Pool({
+  connectionString,
+});
+
+// 2. Setup Adapter (Jembatan Prisma ke Pool)
+const adapter = new PrismaPg(pool);
+
+// 3. Inisialisasi Prisma dengan Adapter
+export const prisma =
+  globalForPrisma.prisma ||
+  new PrismaClient({
+    adapter,
+    // log: ['query'], // Uncomment kalau mau liat log query SQL
   });
-};
 
-declare global {
-  var prismaGlobal: undefined | ReturnType<typeof prismaClientSingleton>;
-}
-
-const prisma = globalThis.prismaGlobal ?? prismaClientSingleton();
+if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
 
 export default prisma;
-
-if (process.env.NODE_ENV !== 'production') globalThis.prismaGlobal = prisma;

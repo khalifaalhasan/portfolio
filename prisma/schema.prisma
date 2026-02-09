@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
@@ -49,8 +50,14 @@ enum CareerCategory {
 model User {
   id        String   @id @default(uuid())
   email     String   @unique
+  name      String
+  emailVerified Boolean  @default(false) @map("email_verified")
+  image    String?
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
+
+  sessions Session[]
+  account Account[]
 
   // Relasi ke Tabel Lain
   profile        Profile?
@@ -63,10 +70,61 @@ model User {
   careerJourneys CareerJourney[]
   educations     Education[]
 
-  @@map("users")
+  @@map("user") // better auth default table name
 }
 
-// 2. Group: Configuration & Identity
+
+// model session khusus better auth
+model Session {
+  id           String   @id @default(uuid())
+  userId       String   @map("user_id")
+  token        String   @unique
+  expiresAt    DateTime @map("expires_at")
+  ipAddress   String   @map("ip_address")
+  userAgent   String   @map("user_agent")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("session") // better auth default table name
+}
+
+// model account khusus better auth
+model Account {
+  id               String   @id @default(uuid())
+  userId           String   @map("user_id")
+  accountId      String   @map("account_id")
+  providerId     String   @map("provider_id")
+  accessToken   String?   @map("access_token")
+  refreshToken  String?  @map("refresh_token")
+  accessTokenExpiresAt DateTime? @map("access_token_expires_at")
+  refreshTokenExpiresAt DateTime? @map("refresh_token_expires_at")
+  scope         String?
+  idToken      String? @map("id_token")
+  password String?
+
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("account") // better auth default table name
+}
+
+// Model Verifikasi Better Auth
+model VerificationToken {
+  id        String   @id @default(uuid())
+  identifier String
+  value    String   @unique
+  expiresAt DateTime @map("expires_at")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("verificationk")
+}
+
+// model bisnis utama aplikasi portofolio
 
 model Profile {
   id           String  @id @default(uuid())
