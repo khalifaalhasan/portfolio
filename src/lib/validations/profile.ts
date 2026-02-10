@@ -6,12 +6,24 @@ export const profileSchema = z.object({
   initial: z.string().max(3, { message: "Initials max 3 characters." }),
   tagline: z.string().min(1, { message: "Tagline is required." }),
   location: z.string().optional(),
-  location_link: z.string().url({ message: "Must be a valid URL." }).optional().or(z.literal("")),
+  location_link: z
+    .string()
+    .url({ message: "Must be a valid URL." })
+    .optional()
+    .or(z.literal("")),
   description: z.string().optional(), // Short intro
   summary: z.string().optional(), // Long summary (Rich Text)
-  avatar_url: z.string().url({ message: "Avatar must be a valid image URL." }),
-  resume_url: z.string().url({ message: "Resume must be a valid URL." }).optional().or(z.literal("")),
-  email: z.string().email({ message: "Invalid email address." }).optional().or(z.literal("")),
+  avatarUrl: z.string().url({ message: "Avatar must be a valid image URL." }),
+  resume_url: z
+    .string()
+    .url({ message: "Resume must be a valid URL." })
+    .optional()
+    .or(z.literal("")),
+  email: z
+    .string()
+    .email({ message: "Invalid email address." })
+    .optional()
+    .or(z.literal("")),
 });
 
 export type ProfileFormValues = z.infer<typeof profileSchema>;
