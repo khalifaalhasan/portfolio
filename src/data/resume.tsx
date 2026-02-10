@@ -13,15 +13,14 @@ import { Java } from "@/components/ui/svgs/java";
 import { Csharp } from "@/components/ui/svgs/csharp";
 
 export const DATA = {
-  name: "Dillion Verma",
-  initials: "DV",
+  name: "Khalifa Alhasan",
+  initials: "AL",
   url: "https://dillion.io",
   location: "San Francisco, CA",
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description:
-    "Software Engineer turned Entrepreneur. I love building things and helping people. Very active on Twitter.",
-  summary:
-    "At the end of 2022, I quit my job as a software engineer to go fulltime into building and scaling my own SaaS businesses. In the past, [I pursued a double degree in computer science and business](/#education), [interned at big tech companies in Silicon Valley](https://www.youtube.com/watch?v=d-LJ2e5qKdE), and [competed in over 21 hackathons for fun](/#hackathons). I also had the pleasure of being a part of the first ever in-person cohort of buildspace called [buildspace sf1](https://buildspace.so/sf1).",
+    "Software Engineer turned Entrepreneur. I love building things and helping people.",
+  summary: "A Computer Science student and Tech Lead at GDGoC UNSRI, currently leading 9 backend engineers in architecting scalable systems. I’m deeply focused on clean code, best practices, and DevOps workflows, which I apply directly through my web agency, BanggaPunyaWeb. From building SaaS-style catalogs for local businesses to managing CI/CD pipelines and Dockerized environments, I’m dedicated to bridging the gap between academic theory and robust, production-grade software engineering.",
   avatarUrl: "/me.png",
   skills: [
     { name: "React", icon: ReactLight },
