@@ -8,9 +8,9 @@ import { Python } from "@/components/ui/svgs/python";
 import { Golang } from "@/components/ui/svgs/golang";
 import { Postgresql } from "@/components/ui/svgs/postgresql";
 import { Docker } from "@/components/ui/svgs/docker";
-import { Kubernetes } from "@/components/ui/svgs/kubernetes";
-import { Java } from "@/components/ui/svgs/java";
 import { Csharp } from "@/components/ui/svgs/csharp";
+import { NestJS } from "@/components/ui/svgs/nestjs";
+import { MySQL } from "@/components/ui/svgs/mysql";
 
 export const DATA = {
   name: "Khalifa Alhasan",
@@ -26,15 +26,15 @@ export const DATA = {
   skills: [
     { name: "React", icon: ReactLight },
     { name: "Next.js", icon: NextjsIconDark },
-    { name: "Typescript", icon: Typescript },
     { name: "Node.js", icon: Nodejs },
-    { name: "Python", icon: Python },
+    { name: "Nest.js", icon: NestJS },
+    { name: "Gin", icon: Python },
+
+    { name: "Typescript", icon: Typescript },
     { name: "Go", icon: Golang },
+    { name: "MySQL", icon: MySQL },
     { name: "Postgres", icon: Postgresql },
     { name: "Docker", icon: Docker },
-    { name: "Kubernetes", icon: Kubernetes },
-    { name: "Java", icon: Java },
-    { name: "C++", icon: Csharp },
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -79,14 +79,14 @@ export const DATA = {
   work: [
     {
       company: "Google Developer Group on Campus: Universitas Sriwijaya",
-      href: "https://atomic.finance", // ganti link googgle community
+      href: "https://gdg.community.dev/u/mvcvtn/#/about", // ganti link googgle community
       badges: [],
       location: "Remote",
       title: "Core Team Back End Development",
-      logoUrl: "/atomic.png", // ganti
+      logoUrl: "/gdg.png", // ganti
       start: "December 2026",
       end: "Present",
-      description: `Leading a squad of 9 backend engineers to build "GDG Talent Hub," a recruitment SaaS for our campus. I also architected the backend curriculum (Express.js, Prisma, Supabase) to help new members bridge the gap between theory and production-ready code. Passionate about Clean Code, scalability, and mentoring the next gen of devs. 🚀👨‍💻`,
+      description: `D`,
     },
     {
       company: "Bangga Punya Web Agency",
@@ -94,7 +94,7 @@ export const DATA = {
       href: "https://banggapunyaweb.com",
       location: "Remote",
       title: "Founder & Project Manager Company",
-      logoUrl: "/shopify.svg", // ganti
+      logoUrl: "/", // ganti
       start: "November 2025",
       end: "Present",
       description:
@@ -106,7 +106,7 @@ export const DATA = {
       badges: [],
       location: "On Site",
       title: "Fullstack Developer",
-      logoUrl: "/nvidia.png", // ganti
+      logoUrl: "/uin.png", // ganti
       start: "June 2024",
       end: "November 2024",
       description:
@@ -118,7 +118,7 @@ export const DATA = {
       school: "Raden Fatah State Islamic University, Palembang",
       href: "https://radenfatah.ac.id", // ganti
       degree: "Information System | Bachelor",
-      logoUrl: "/buildspace.jpg", // ganti
+      logoUrl: "/uin.png", // ganti
       start: "2023",
       end: "Present",
     },
@@ -126,7 +126,7 @@ export const DATA = {
       school: "State Vocational High School 11, Bogor Regency",
       href: "https://uwaterloo.ca", // ganti
       degree: "Computer and Network Engineering",
-      logoUrl: "/waterloo.png", // ganti
+      logoUrl: "/smk.jpg", // ganti
       start: "2020",
       end: "2023",
     },
