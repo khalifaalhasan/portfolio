@@ -8,9 +8,9 @@ import { Python } from "@/components/ui/svgs/python";
 import { Golang } from "@/components/ui/svgs/golang";
 import { Postgresql } from "@/components/ui/svgs/postgresql";
 import { Docker } from "@/components/ui/svgs/docker";
-import { Kubernetes } from "@/components/ui/svgs/kubernetes";
-import { Java } from "@/components/ui/svgs/java";
 import { Csharp } from "@/components/ui/svgs/csharp";
+import { NestJS } from "@/components/ui/svgs/nestjs";
+import { MySQL } from "@/components/ui/svgs/mysql";
 
 export const DATA = {
   name: "Khalifa Alhasan",
@@ -20,20 +20,21 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description:
     "Software Engineer turned Entrepreneur. I love building things and helping people.",
-  summary: "A Computer Science student and Tech Lead at GDGoC UNSRI, currently leading 9 backend engineers in architecting scalable systems. I’m deeply focused on clean code, best practices, and DevOps workflows, which I apply directly through my web agency, BanggaPunyaWeb. From building SaaS-style catalogs for local businesses to managing CI/CD pipelines and Dockerized environments, I’m dedicated to bridging the gap between academic theory and robust, production-grade software engineering.",
+  summary:
+    "A Computer Science student and Tech Lead at GDGoC UNSRI, currently leading 9 backend engineers in architecting scalable systems. I’m deeply focused on clean code, best practices, and DevOps workflows, which I apply directly through my web agency, BanggaPunyaWeb. From building SaaS-style catalogs for local businesses to managing CI/CD pipelines and Dockerized environments, I’m dedicated to bridging the gap between academic theory and robust, production-grade software engineering.",
   avatarUrl: "/me.png",
   skills: [
     { name: "React", icon: ReactLight },
     { name: "Next.js", icon: NextjsIconDark },
-    { name: "Typescript", icon: Typescript },
     { name: "Node.js", icon: Nodejs },
-    { name: "Python", icon: Python },
+    { name: "Nest.js", icon: NestJS },
+    { name: "Gin", icon: Python },
+
+    { name: "Typescript", icon: Typescript },
     { name: "Go", icon: Golang },
+    { name: "MySQL", icon: MySQL },
     { name: "Postgres", icon: Postgresql },
     { name: "Docker", icon: Docker },
-    { name: "Kubernetes", icon: Kubernetes },
-    { name: "Java", icon: Java },
-    { name: "C++", icon: Csharp },
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -77,234 +78,182 @@ export const DATA = {
 
   work: [
     {
-      company: "Atomic Finance",
-      href: "https://atomic.finance",
+      company: "Google Developer Group on Campus: Universitas Sriwijaya",
+      href: "https://gdg.community.dev/u/mvcvtn/#/about", // ganti link googgle community
       badges: [],
       location: "Remote",
-      title: "Bitcoin Protocol Engineer",
-      logoUrl: "/atomic.png",
-      start: "May 2021",
-      end: "Oct 2022",
-      description:
-        "Implemented the Bitcoin discreet log contract (DLC) protocol specifications as an open source Typescript SDK. Dockerized all microservices and setup production kubernetes cluster. Architected a data lake using AWS S3 and Athena for historical backtesting of bitcoin trading strategies. Built a mobile app using react native and typescript.",
+      title: "Core Team Back End Development",
+      logoUrl: "/gdg.png", // ganti
+      start: "December 2026",
+      end: "Present",
+      description: `D`,
     },
     {
-      company: "Shopify",
+      company: "Bangga Punya Web Agency",
       badges: [],
-      href: "https://shopify.com",
+      href: "https://banggapunyaweb.com",
       location: "Remote",
-      title: "Software Engineer",
-      logoUrl: "/shopify.svg",
-      start: "January 2021",
-      end: "April 2021",
+      title: "Founder & Project Manager Company",
+      logoUrl: "/", // ganti
+      start: "November 2025",
+      end: "Present",
       description:
-        "Implemented a custom Kubernetes controller in Go to automate the deployment of MySQL and ProxySQL custom resources in order to enable 2,000+ internal developers to instantly deploy their app databases to production. Wrote several scripts in Go to automate MySQL database failovers while maintaining master-slave replication topologies and keeping Zookeeper nodes consistent with changes.",
+        "Spearheading digital growth for local businesses by managing the end-to-end delivery of custom web solutions. My role encompasses the full SDLC, where I translate complex client requirements into precise technical specifications and lead the development of scalable SaaS-like catalogs. Utilizing a robust stack of Next.js, Laravel, and WordPress, I ensure every project is delivered on time with a focus on performance, security, and business value.",
     },
     {
-      company: "Nvidia",
-      href: "https://nvidia.com/",
+      company: "Raden Fatah State Islamic University, Palembang",
+      href: "https://radenfatah.ac.id",
       badges: [],
-      location: "Santa Clara, CA",
-      title: "Software Engineer",
-      logoUrl: "/nvidia.png",
-      start: "January 2020",
-      end: "April 2020",
+      location: "On Site",
+      title: "Fullstack Developer",
+      logoUrl: "/uin.png", // ganti
+      start: "June 2024",
+      end: "November 2024",
       description:
-        "Architected and wrote the entire MVP of the GeForce Now Cloud Gaming internal admin and A/B testing dashboard using React, Redux, TypeScript, and Python.",
-    },
-    {
-      company: "Splunk",
-      href: "https://splunk.com",
-      badges: [],
-      location: "San Jose, CA",
-      title: "Software Engineer",
-      logoUrl: "/splunk.svg",
-      start: "January 2019",
-      end: "April 2019",
-      description:
-        "Co-developed a prototype iOS app with another intern in Swift for the new Splunk Phantom security orchestration product (later publicly demoed and launched at .conf annual conference in Las Vegas). Implemented a realtime service for the iOS app in Django (Python) and C++; serialized data using protobufs transmitted over gRPC resulting in an approximate 500% increase in data throughput.",
-    },
-    {
-      company: "Lime",
-      href: "https://li.me/",
-      badges: [],
-      location: "San Francisco, CA",
-      title: "Software Engineer",
-      logoUrl: "/lime.svg",
-      start: "January 2018",
-      end: "April 2018",
-      description:
-        "Proposed and implemented an internal ruby API for sending/receiving commands to scooters over LTE networks. Developed a fully automated bike firmware update system to handle asynchronous firmware updates of over 100,000+ scooters worldwide, and provide progress reports in real-time using React, Ruby on Rails, PostgreSQL and AWS EC2 saving hundreds of developer hours.",
-    },
-    {
-      company: "Mitre Media",
-      href: "https://mitremedia.com/",
-      badges: [],
-      location: "Toronto, ON",
-      title: "Software Engineer",
-      logoUrl: "/mitremedia.png",
-      start: "May 2017",
-      end: "August 2017",
-      description:
-        "Designed and implemented a robust password encryption and browser cookie storage system in Ruby on Rails. Leveraged the Yahoo finance API to develop the dividend.com equity screener",
+        "Developed & Managed Academic Portals: Spearheaded the development of the university's academic website using WordPress, integrating critical features for student data management, academic calendars, and faculty information portals.",
     },
   ],
   education: [
     {
-      school: "Buildspace",
-      href: "https://buildspace.so",
-      degree: "s3, s4, sf1, s5",
-      logoUrl: "/buildspace.jpg",
+      school: "Raden Fatah State Islamic University, Palembang",
+      href: "https://radenfatah.ac.id", // ganti
+      degree: "Information System | Bachelor",
+      logoUrl: "/uin.png", // ganti
       start: "2023",
-      end: "2024",
+      end: "Present",
     },
     {
-      school: "University of Waterloo",
-      href: "https://uwaterloo.ca",
-      degree: "Bachelor's Degree of Computer Science (BCS)",
-      logoUrl: "/waterloo.png",
-      start: "2016",
-      end: "2021",
-    },
-    {
-      school: "Wilfrid Laurier University",
-      href: "https://wlu.ca",
-      degree: "Bachelor's Degree of Business Administration (BBA)",
-      logoUrl: "/laurier.png",
-      start: "2016",
-      end: "2021",
-    },
-    {
-      school: "International Baccalaureate",
-      href: "https://ibo.org",
-      degree: "IB Diploma",
-      logoUrl: "/ib.png",
-      start: "2012",
-      end: "2016",
+      school: "State Vocational High School 11, Bogor Regency",
+      href: "https://uwaterloo.ca", // ganti
+      degree: "Computer and Network Engineering",
+      logoUrl: "/smk.jpg", // ganti
+      start: "2020",
+      end: "2023",
     },
   ],
   projects: [
     {
-      title: "Chat Collect",
-      href: "https://chatcollect.com",
-      dates: "Jan 2024 - Feb 2024",
+      title:
+        "Official Website of LPH Raden Fatah State Islamic University Palembang",
+      href: "https://lph.radenfatah.ac.id",
+      dates: "Jan 2026 - Feb 2026",
       active: true,
       description:
-        "With the release of the [OpenAI GPT Store](https://openai.com/blog/introducing-the-gpt-store), I decided to build a SaaS which allows users to collect email addresses from their GPT users. This is a great way to build an audience and monetize your GPT API usage.",
+        "Led the end-to-end rebuild of the Halal Center platform. I recovered the domain from SEO spam injections (gambling) and restored Google indexing. Developed the system using Next.js 14, TypeScript, and Prisma. Crucially, I containerized the app with Docker and coordinated directly with the University IT Center (PUSTIPD) to handle server deployment and secure legacy data migration.",
       technologies: [
         "Next.js",
         "Typescript",
         "PostgreSQL",
         "Prisma",
         "TailwindCSS",
-        "Stripe",
-        "Shadcn UI",
-        "Magic UI",
+        "Docker",
+        "MinIO Storage",
+        "Nginx",
       ],
       links: [
         {
           type: "Website",
-          href: "https://chatcollect.com",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "",
-      video:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/chat-collect.mp4",
-    },
-    {
-      title: "Magic UI",
-      href: "https://magicui.design",
-      dates: "June 2023 - Present",
-      active: true,
-      description:
-        "Designed, developed and sold animated UI components for developers.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "Prisma",
-        "TailwindCSS",
-        "Stripe",
-        "Shadcn UI",
-        "Magic UI",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://magicui.design",
+          href: "https://lph.radenfatah.ac.id",
           icon: <Icons.globe className="size-3" />,
         },
         {
           type: "Source",
-          href: "https://github.com/magicuidesign/magicui",
+          href: "https://github.com/khalifaalhasan/LPH-Apps",
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
-      video: "https://cdn.magicui.design/bento-grid.mp4",
+      image:
+        "https://media.licdn.com/dms/image/v2/D562DAQGyUXxVu2wAzA/profile-treasury-image-shrink_800_800/B56ZxH2085IEAc-/0/1770732082879?e=1771448400&v=beta&t=Qq4expDCcyQc6cb-d5qmhe5W6eudSciMZqY_NCOdS-A",
+      video: "",
     },
     {
-      title: "llm.report",
-      href: "https://llm.report",
-      dates: "April 2023 - September 2023",
+      title: "Integrated Asset Booking System (P2B UIN Raden Fatah)",
+      href: "https://ppbisnis.radenfatah.ac.id",
+      dates: "Aug 2025 - Jan 2026",
       active: true,
       description:
-        "Developed an open-source logging and analytics platform for OpenAI: Log your ChatGPT API requests, analyze costs, and improve your prompts.",
+        "Digitalized the university's business processes by developing a comprehensive booking system for campus assets. I utilized Next.js 14 and Supabase to create a seamless user experience. Beyond coding, I acted as the bridge to the University IT Center (PUSTIPD), translating technical requirements into a successful on-premise server deployment strategy.",
       technologies: [
         "Next.js",
         "Typescript",
         "PostgreSQL",
         "Prisma",
         "TailwindCSS",
-        "Shadcn UI",
-        "Magic UI",
-        "Stripe",
-        "Cloudflare Workers",
+        "Docker",
+        "MinIO Storage",
+        "Nginx",
+        "Redis",
       ],
       links: [
         {
           type: "Website",
-          href: "https://llm.report",
+          href: "https://ppbisnis.radenfatah.ac.id",
           icon: <Icons.globe className="size-3" />,
         },
         {
           type: "Source",
-          href: "https://github.com/dillionverma/llm.report",
+          href: "https://github.com/khalifaalhasan/next-booking-platform",
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
-      video: "https://cdn.llm.report/openai-demo.mp4",
+      image:
+        "https://media.licdn.com/dms/image/v2/D562DAQHPMYDirC01yQ/profile-treasury-image-shrink_800_800/B56ZxH44PBIEAc-/0/1770732620105?e=1771448400&v=beta&t=J0LyWWzB1mxFBk3Z5a5aRP2I9ed5bEmiZSKje-l2br8",
+      video: "",
     },
     {
-      title: "Automatic Chat",
+      title: "Digital Public Service Platform: Desa Air Senggeris",
+      href: "https://airsenggeris.com",
+      dates: "Jun 2025 - Jul 2025",
+      active: true,
+      description:
+        "Tech Stack: Laravel 12, Filament, Supabase. Key Role: Led the backend team using GitHub best practices (Branching & PRs) to coordinate development. Outcome: Deployed a scalable digital service platform on a Linux VPS, modernizing village administration.",
+      technologies: ["Laravel", "Php", "Mysql", "Filament v4", "TailwindCSS"],
+      links: [
+        {
+          type: "Website",
+          href: "https://airsenggeris.com",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/khalifaalhasan/sisteminformasi-desa-laravel-blade",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image:
+        "https://media.licdn.com/dms/image/v2/D562DAQHOQ_snbTZ9jA/profile-treasury-image-shrink_800_800/B56ZxH4C85IEAY-/0/1770732401749?e=1771448400&v=beta&t=7r1bwxX9fxCb4xoX_-P-eiK_5jezj--zNspOER_cuNE",
+      video: "",
+    },
+    {
+      title: "Khazanah Kebajikan Official Web Portal",
       href: "https://automatic.chat",
-      dates: "April 2023 - March 2024",
+      dates: "March 2025 - May 2025",
       active: true,
       description:
-        "Developed an AI Customer Support Chatbot which automatically responds to customer support tickets using the latest GPT models.",
+        "Developed a robust platform to bridge the foundation with its donors. I architected a secure database using Supabase (PostgreSQL) to track donations and ensure data integrity. The system features a custom Content Management System (CMS) tailored for non-technical staff, enabling them to update activities and financial reports easily.",
       technologies: [
         "Next.js",
         "Typescript",
         "PostgreSQL",
-        "Prisma",
+        "Supabase",
         "TailwindCSS",
         "Shadcn UI",
-        "Magic UI",
-        "Stripe",
-        "Cloudflare Workers",
       ],
       links: [
         {
           type: "Website",
-          href: "https://automatic.chat",
+          href: "https://khazanahkebajikan.com",
           icon: <Icons.globe className="size-3" />,
         },
+        {
+          type: "Source",
+          href: "https://github.com/khalifaalhasan/Yayasan-Khazanah-Kebajikan",
+          icon: <Icons.github className="size-3" />,
+        },
       ],
-      image: "",
-      video:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/automatic-chat.mp4",
+      image:
+        "https://media.licdn.com/dms/image/v2/D562DAQGFiPlETgYldg/profile-treasury-image-shrink_800_800/B56ZxH6s9SJgAc-/0/1770733097956?e=1771448400&v=beta&t=91V1Qk584M7j_H7_swiFcmoyk_rPFpBrwvpoIPfYkQY",
+      video: "",
     },
   ],
   hackathons: [
