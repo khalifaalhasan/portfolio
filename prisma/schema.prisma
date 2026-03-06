@@ -66,6 +66,7 @@ model User {
   sections       Section[]
   navItems       NavItem[]
   projects       Project[]
+  projectCategories ProjectCategory[]
   competitions   Competition[]
   careerJourneys CareerJourney[]
   educations     Education[]
@@ -222,6 +223,8 @@ model Project {
   createdAt DateTime @default(now()) @map("created_at")
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
+  categories ProjectCategory[]
+
   // Unik: User tidak boleh punya 2 project dengan slug yang sama
   @@unique([userId, slug])
   @@map("projects")
@@ -267,9 +270,23 @@ model Education {
   degree      String
   period      String
   description String? @db.Text
+  logoUrl     String?        @map("logo_url")
 
   createdAt DateTime @default(now()) @map("created_at")
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("educations")
+}
+
+model ProjectCategory {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  name      String
+  
+  projects  Project[]
+  
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, name])
+  @@map("project_categories")
 }

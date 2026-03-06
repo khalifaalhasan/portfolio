@@ -12,15 +12,14 @@ function ProjectImage({ src, alt }: { src: string; alt: string }) {
   const [imageError, setImageError] = useState(false);
 
   if (!src || imageError) {
-    return <div className="w-full h-32 sm:h-48 bg-muted" />; // Adjusted height
+    return <div className="w-full h-full bg-muted" />;
   }
 
   return (
     <img
       src={src}
       alt={alt}
-      // Mobile: h-32, Desktop: h-48
-      className="w-full h-32 sm:h-48 object-cover transition-transform duration-500 hover:scale-105"
+      className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105"
       onError={() => setImageError(true)}
     />
   );
@@ -67,7 +66,7 @@ export function ProjectCard({
           href={href || "#"}
           target="_blank"
           rel="noopener noreferrer"
-          className="block"
+          className="block w-full relative overflow-hidden border-b border-border"
         >
           {video ? (
             <video
@@ -76,13 +75,12 @@ export function ProjectCard({
               loop
               muted
               playsInline
-              // Mobile: h-32, Desktop: h-48
-              className="w-full h-32 sm:h-48 object-cover transition-transform duration-500 hover:scale-105"
+              className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105"
             />
           ) : image ? (
             <ProjectImage src={image} alt={title} />
           ) : (
-            <div className="w-full h-32 sm:h-48 bg-muted" />
+            <div className="w-full h-full bg-muted" />
           )}
         </Link>
 
