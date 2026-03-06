@@ -26,7 +26,12 @@ const socialLinkSchema = z.object({
   isActive: z.boolean().default(true),
 });
 
-type SocialLinkFormValues = z.infer<typeof socialLinkSchema>;
+type SocialLinkFormValues = {
+  platform: string;
+  url: string;
+  iconKey: string;
+  isActive: boolean;
+};
 
 export function SocialLinkClient({ initialData }: { initialData: SocialLink[] }) {
   const [links, setLinks] = useState<SocialLink[]>(initialData);
@@ -35,7 +40,7 @@ export function SocialLinkClient({ initialData }: { initialData: SocialLink[] })
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   const form = useForm<SocialLinkFormValues>({
-    resolver: zodResolver(socialLinkSchema),
+    resolver: zodResolver(socialLinkSchema) as any,
     defaultValues: {
       platform: "",
       url: "",
