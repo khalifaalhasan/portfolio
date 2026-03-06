@@ -29,9 +29,20 @@ const sectionSchema = z.object({
   subHeading: z.string().optional(),
   badgeText: z.string().optional(),
   description: z.string().optional(),
+
+  
 });
 
-type SectionFormValues = z.infer<typeof sectionSchema>;
+type SectionFormValues = {
+  contentSource: SectionSource;
+  orderIndex: number;
+  isVisible: boolean;
+  headerStyle: HeaderStyle;
+  heading: string;
+  subHeading?: string;
+  badgeText?: string;
+  description?: string;
+};
 
 export function SectionClient({ initialData }: { initialData: Section[] }) {
   const [sections, setSections] = useState<Section[]>(initialData);
@@ -40,7 +51,7 @@ export function SectionClient({ initialData }: { initialData: Section[] }) {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   const form = useForm<SectionFormValues>({
-    resolver: zodResolver(sectionSchema),
+    resolver: zodResolver(sectionSchema) as any,
     defaultValues: {
       contentSource: "projects",
       orderIndex: sections.length,
@@ -137,9 +148,20 @@ export function SectionClient({ initialData }: { initialData: Section[] }) {
 
     // Persist to DB
     try {
+      const updatePayload = (section: Section): SectionFormValues => ({
+        contentSource: section.contentSource,
+        orderIndex: section.orderIndex,
+        isVisible: section.isVisible,
+        headerStyle: section.headerStyle,
+        heading: section.heading,
+        subHeading: section.subHeading ?? undefined,
+        badgeText: section.badgeText ?? undefined,
+        description: section.description ?? undefined,
+      });
+
       await Promise.all([
-        updateSection(sorted[index].id, { ...sorted[index] }),
-        updateSection(sorted[swapIndex].id, { ...sorted[swapIndex] })
+        updateSection(sorted[index].id, updatePayload(sorted[index])),
+        updateSection(sorted[swapIndex].id, updatePayload(sorted[swapIndex]))
       ]);
     } catch (error) {
       toast.error("Failed to update order");

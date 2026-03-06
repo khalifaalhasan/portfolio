@@ -26,7 +26,7 @@ export default async function ProjectsPage() {
   });
 
   return (
-    <main className="min-h-dvh flex flex-col gap-10 relative pt-12 md:pt-24 lg:pt-32 mb-20 max-w-5xl mx-auto px-4 md:px-8">
+    <main className="min-h-dvh flex flex-col gap-10 relative pt-8 md:pt-8 lg:pt-8 mb-20 max-w-5xl mx-auto px-4 md:px-8">
       <section id="projects-header">
         <div className="flex flex-col gap-y-4 items-center justify-center text-center">
           <BlurFadeText
