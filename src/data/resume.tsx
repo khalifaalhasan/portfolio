@@ -8,7 +8,6 @@ import { Python } from "@/components/ui/svgs/python";
 import { Golang } from "@/components/ui/svgs/golang";
 import { Postgresql } from "@/components/ui/svgs/postgresql";
 import { Docker } from "@/components/ui/svgs/docker";
-import { Csharp } from "@/components/ui/svgs/csharp";
 import { NestJS } from "@/components/ui/svgs/nestjs";
 import { MySQL } from "@/components/ui/svgs/mysql";
 

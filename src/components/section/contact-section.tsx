@@ -1,8 +1,13 @@
 import Link from "next/link";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
-import { DATA } from "@/data/resume";
+import { SocialLink } from "@prisma/client";
 
-export default function ContactSection() {
+export default function ContactSection({ socialLinks }: { socialLinks: SocialLink[] }) {
+  // Find first social link that looks like an Instagram or primary social
+  const instagramLink = socialLinks.find(
+    (l) => l.platform.toLowerCase().includes("instagram") || l.platform.toLowerCase().includes("twitter")
+  );
+
   return (
     <div className="border rounded-xl p-10 relative">
       <div className="absolute -top-4 border bg-primary z-10 rounded-xl px-4 py-1 left-1/2 -translate-x-1/2">
@@ -25,19 +30,36 @@ export default function ContactSection() {
         </h2>
         <p className="mx-auto max-w-lg text-muted-foreground text-balance">
           Want to chat? Just shoot me a dm{" "}
-          <Link
-            href={DATA.contact.social.Instagram.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
-          >
-            with a direct question on twitter
-          </Link>{" "}
-          and I&apos;ll respond whenever I can. I will ignore all
-          soliciting.
+          {instagramLink ? (
+            <Link
+              href={instagramLink.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+            >
+              with a direct question on {instagramLink.platform}
+            </Link>
+          ) : (
+            "directly"
+          )}{" "}
+          and I&apos;ll respond whenever I can.
         </p>
+        {socialLinks.length > 0 && (
+          <div className="flex flex-wrap gap-3 justify-center mt-2">
+            {socialLinks.map((link) => (
+              <Link
+                key={link.id}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-blue-500 hover:underline underline-offset-4"
+              >
+                {link.platform}
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
 }
-
